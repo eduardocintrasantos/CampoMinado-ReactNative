@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import Params from './src/params';
 import params from './src/params';
+import Field from './src/components/Field';
 
 export default class App extends Component{
   render() {
@@ -10,9 +10,16 @@ export default class App extends Component{
         <Text style={styles.welcome}> 
           Iniciando o Campo Minado!!
         </Text>
-        <Text>
-          Tamanho da grade: {params.getRowsAmount()}x{params.getColumsAmount()}
+        <Text style={styles.intructions}>
+          Tamanho da grade: {params.getRowsAmount()}x{params.getColumnsAmount()}
         </Text>
+
+        <Field />
+        <Field opened nearMines={1}/>
+        <Field opened nearMines={2}/>
+        <Field opened nearMines={4}/>
+        <Field opened nearMines={6}/>
+        <Field opened nearMines={8}/>
       </View>
     )
   }
@@ -26,5 +33,8 @@ const styles= StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  intructions: {
+    textAlign: 'center',
   }
 })
